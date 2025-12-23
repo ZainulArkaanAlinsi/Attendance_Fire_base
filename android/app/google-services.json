@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "884707807336",
+    "project_id": "attendanceskl3",
+    "storage_bucket": "attendanceskl3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884707807336:android:79071beccb8a3a9b382bdd",
+        "android_client_info": {
+          "package_name": "com.example.skl_3_fire_base"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTjqQ7e8zLarEeQRm-ev2f5AMX0WaU93k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

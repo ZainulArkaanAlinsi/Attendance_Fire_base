@@ -1,0 +1,31 @@
+Analyzing skl_3_fire_base...                                    
+
+warning - Unused import: '../routes/app_router.dart' - lib\controllers\auth_controller.dart:5:8 - unused_import
+  error - The argument type 'List<double>?' can't be assigned to the parameter type 'List<double>'.  - lib\controllers\enroll_face_controller.dart:101:41 - argument_type_not_assignable
+warning - Unused import: 'controllers/theme_controller.dart' - lib\main.dart:10:8 - unused_import
+  error - The name 'AuthController' isn't a type, so it can't be used as a type argument - lib\pages\attendance_page.dart:41:14 - non_type_as_type_argument
+  error - The getter 'isGranted' isn't defined for the type 'PermissionStatus' - lib\pages\attendance_page.dart:67:54 - undefined_getter
+  error - The getter 'isDarkMode' isn't defined for the type 'ThemeController' - lib\pages\enroll_face_page.dart:28:31 - undefined_getter
+  error - Undefined name 'permissionController' - lib\pages\enroll_face_page.dart:45:36 - undefined_identifier
+  error - Undefined name 'faceController' - lib\pages\enroll_face_page.dart:53:14 - undefined_identifier
+  error - Undefined name 'faceController' - lib\pages\enroll_face_page.dart:63:36 - undefined_identifier
+  error - The argument for the named parameter 'bottom' was already specified - lib\pages\enroll_face_page.dart:76:15 - duplicate_named_argument
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\pages\enroll_face_page.dart:100:39 - deprecated_member_use
+  error - The name 'UserService' isn't a type, so it can't be used as a type argument - lib\pages\home_page.dart:34:39 - non_type_as_type_argument
+  error - The getter 'isAdmin' isn't defined for the type 'AuthController' - lib\pages\home_page.dart:44:30 - undefined_getter
+  error - The getter 'attendanceHistory' isn't defined for the type 'AuthController' - lib\pages\home_page.dart:49:34 - undefined_getter
+  error - The getter 'attendanceHistory' isn't defined for the type 'AuthController' - lib\pages\home_page.dart:56:45 - undefined_getter
+  error - The getter 'attendanceHistory' isn't defined for the type 'AuthController' - lib\pages\home_page.dart:58:51 - undefined_getter
+  error - The getter 'isAdmin' isn't defined for the type 'AuthController' - lib\pages\home_page.dart:74:33 - undefined_getter
+  error - Too many positional arguments: 0 expected, but 1 found - lib\pages\login_page.dart:81:50 - extra_positional_arguments
+  error - Too many positional arguments: 0 expected, but 1 found - lib\pages\login_page.dart:126:57 - extra_positional_arguments
+warning - Unused import: '../routes/app_router.dart' - lib\pages\register_page.dart:7:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\pages\request_camera_page.dart:29:53 - deprecated_member_use
+   info - Constructors in '@immutable' classes should be declared as 'const' - lib\pages\request_camera_page.dart:92:3 - prefer_const_constructors_in_immutables
+  error - The name 'RequestCameraPage' isn't a class - lib\routes\app_router.dart:33:25 - creation_with_non_type
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\services\face_recognition_service.dart:116:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\utils\app_utils.dart:14:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\utils\app_utils.dart:28:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\utils\app_utils.dart:42:36 - deprecated_member_use
+
+27 issues found. (ran in 2.0s)
