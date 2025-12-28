@@ -5,13 +5,32 @@ import '../controllers/auth_controller.dart';
 import '../utils/app_utils.dart';
 import '../utils/validators.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final authController = Get.find<AuthController>();
+  State<RegisterPage> createState() => _RegisterPageState();
+}
 
+class _RegisterPageState extends State<RegisterPage> {
+  final AuthController authController = Get.find<AuthController>();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
       body: SingleChildScrollView(
@@ -36,7 +55,7 @@ class RegisterPage extends StatelessWidget {
               ),
               const SizedBox(height: 40),
               TextFormField(
-                controller: authController.nameController,
+                controller: nameController,
                 validator: AppValidators.validateName,
                 decoration: const InputDecoration(
                   labelText: 'Full Name',
@@ -48,7 +67,7 @@ class RegisterPage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               TextFormField(
-                controller: authController.emailController,
+                controller: emailController,
                 validator: AppValidators.validateEmail,
                 decoration: const InputDecoration(
                   labelText: 'Email Address',
@@ -62,7 +81,7 @@ class RegisterPage extends StatelessWidget {
               const SizedBox(height: 20),
               Obx(
                 () => TextFormField(
-                  controller: authController.passwordController,
+                  controller: passwordController,
                   validator: AppValidators.validatePassword,
                   obscureText: authController.isPasswordHidden.value,
                   decoration: InputDecoration(
@@ -85,10 +104,10 @@ class RegisterPage extends StatelessWidget {
               const SizedBox(height: 20),
               Obx(
                 () => TextFormField(
-                  controller: authController.confirmPasswordController,
+                  controller: confirmPasswordController,
                   validator: (value) => AppValidators.validateConfirmPassword(
                     value,
-                    authController.passwordController.text,
+                    passwordController.text,
                   ),
                   obscureText: authController.isConfirmPasswordHidden.value,
                   decoration: InputDecoration(
@@ -115,7 +134,12 @@ class RegisterPage extends StatelessWidget {
                   child: FilledButton(
                     onPressed: authController.isLoading.value
                         ? null
-                        : () => authController.register(),
+                        : () => authController.register(
+                            name: nameController.text,
+                            email: emailController.text,
+                            password: passwordController.text,
+                            confirmPassword: confirmPasswordController.text,
+                          ),
                     style: FilledButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(

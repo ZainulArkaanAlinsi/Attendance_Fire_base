@@ -160,6 +160,41 @@ class UserService extends GetxService {
     }
   }
 
+  Future<void> clearUserData() async {
+    firestoreUser.value = null;
+    attendanceHistory.clear();
+  }
+
+  Future<void> deleteUserData(String uid) async {
+    try {
+      await _db.collection(Constant.usersCollection).doc(uid).delete();
+      await clearUserData();
+    } catch (e) {
+      dev.log('Error deleting user data: $e');
+      throw Exception('Failed to delete user data');
+    }
+  }
+
+  Future<void> updateProfile({String? displayName, String? photoURL}) async {
+    try {
+      final uid = firebaseUser.value?.uid;
+      if (uid == null) return;
+
+      final Map<String, dynamic> updates = {};
+      if (displayName != null) updates['displayName'] = displayName;
+      if (photoURL != null) updates['photoURL'] = photoURL;
+
+      if (updates.isNotEmpty) {
+        await _db.collection(Constant.usersCollection).doc(uid).update(updates);
+        // Reload user data
+        await loadUserDoc(uid);
+      }
+    } catch (e) {
+      dev.log('Error updating profile: $e');
+      throw Exception('Failed to update profile');
+    }
+  }
+
   Future<void> logout() async {
     await _auth.signOut();
   }

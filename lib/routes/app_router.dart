@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../pages/root_page.dart';
 import '../pages/login_page.dart';
@@ -20,44 +21,39 @@ class AppRouter {
   static const String requestLocation = '/request-location';
   static const String enrollFace = '/enroll-face';
   static const String attendance = '/attendance';
+  static const String adminDashboard = '/admin-dashboard';
+  static const String forgotPassword = '/forgot-password';
 
   static const String initialRoute = root;
 
   static final List<GetPage> pages = [
-    GetPage(
-      name: root,
-      page: () => const RootPage(),
-    ),
-    GetPage(
-      name: home,
-      page: () => const HomePage(),
-    ),
-    GetPage(
-      name: requestCamera,
-      page: () => const RequestCameraPage(),
-    ),
+    GetPage(name: root, page: () => const RootPage()),
+    GetPage(name: home, page: () => const HomePage()),
+    GetPage(name: requestCamera, page: () => const RequestCameraPage()),
     GetPage(
       name: requestLocation,
       page: () => const RequestLocationPage(),
-      binding: BindingsBuilder(() => Get.lazyPut(() => RequestLocationController())),
+      binding: BindingsBuilder(
+        () => Get.lazyPut(() => RequestLocationController()),
+      ),
     ),
-    GetPage(
-      name: login,
-      page: () => const LoginPage(),
-      binding: AuthBinding(),
-    ),
+    GetPage(name: login, page: () => const LoginPage(), binding: AuthBinding()),
     GetPage(
       name: register,
       page: () => const RegisterPage(),
       binding: AuthBinding(),
     ),
+    GetPage(name: enrollFace, page: () => const EnrollFacePage()),
+    GetPage(name: attendance, page: () => const AttendancePage()),
     GetPage(
-      name: enrollFace,
-      page: () => const EnrollFacePage(),
+      name: adminDashboard,
+      page: () => const HomePage(), // Placeholder or redirect
     ),
     GetPage(
-      name: attendance,
-      page: () => const AttendancePage(),
+      name: forgotPassword,
+      page: () => const Scaffold(
+        body: Center(child: Text('Forgot Password Page')),
+      ), // Placeholder
     ),
   ];
 }
