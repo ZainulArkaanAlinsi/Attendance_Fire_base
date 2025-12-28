@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.skl_3_fire_base"
-    compileSdk = 34
+    compileSdk = 36
     ndkVersion = "25.1.8937393"
 
     compileOptions {
@@ -22,7 +22,7 @@ android {
     defaultConfig {
         applicationId = "com.example.skl_3_fire_base"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
         multiDexEnabled = true
@@ -83,7 +83,6 @@ dependencies {
     implementation("com.google.firebase:firebase-ml-modeldownloader")
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")
-    implementation("com.google.mlkit:face-detection:17.1.0")
     implementation("androidx.multidex:multidex:2.0.1")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
